@@ -32,4 +32,12 @@ node('misc'){
             sh './gradlew jacocoTestCoverageVerification' 
         } 
       }
+
+      
+      echo "${seperator60}\n${seperator20} Docker in docker build \n${seperator60}"
+      stage('Building Docker'){
+        dir('calculator'){
+            sh 'docker build -t phelun/calc_cicd:${BUILD_TIMESTAMP} .'
+        }
+      }
 }
