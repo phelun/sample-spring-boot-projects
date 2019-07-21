@@ -1,0 +1,14 @@
+#!/usr/bin/env groovy
+
+// Beautify display
+def seperator60 = '\u2739' * 60
+def seperator20 = '\u2739' * 20
+
+
+node('misc'){
+      echo "${seperator60}\n${seperator20} Inbuilt tools \n${seperator60}"
+      ansiColor('xterm') {
+          stage "\u001B[31mI'm Red\u001B[0m Now not"
+          checkout scm 
+      }
+}
