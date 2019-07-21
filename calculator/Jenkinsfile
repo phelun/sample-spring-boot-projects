@@ -6,9 +6,15 @@ def seperator20 = '\u2739' * 20
 
 
 node('misc'){
-      echo "${seperator60}\n${seperator20} Inbuilt tools \n${seperator60}"
+      echo "${seperator60}\n${seperator20} Clone repo to workspace \n${seperator60}"
       ansiColor('xterm') {
           stage "\u001B[31mI'm Red\u001B[0m Now not"
           checkout scm 
+      }
+   
+      echo "${seperator60}\n${seperator20} Build And Integrate \n${seperator60}"
+      stage('Build App'){
+        sh "ls -la"
+        sh "echo now"
       }
 }
