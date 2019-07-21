@@ -13,11 +13,9 @@ node('misc'){
    
       echo "${seperator60}\n${seperator20} Build And Integrate \n${seperator60}"
       stage('Build App'){
-        steps {
           dir('calculator'){
             sh 'pwd'
           }  
-        }
       }
       
       echo "${seperator60}\n${seperator20} Build And Unit Test \n${seperator60}"
