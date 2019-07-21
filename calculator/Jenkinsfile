@@ -14,6 +14,7 @@ node('misc'){
       echo "${seperator60}\n${seperator20} Build And Integrate \n${seperator60}"
       stage('Build App'){
         sh "ls -la"
-        sh "echo now or not"
+        sh "cd calculator" 
+        sh "ls -la" 
       }
 }
