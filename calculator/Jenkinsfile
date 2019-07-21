@@ -14,7 +14,17 @@ node('misc'){
       echo "${seperator60}\n${seperator20} Build And Integrate \n${seperator60}"
       stage('Build App'){
         sh "ls -la"
-        sh "cd calculator" 
-        sh "ls -la" 
+        sh "./calculator/gradlew build ./calculator" 
+      }
+      
+      echo "${seperator60}\n${seperator20} Build And Unit Test \n${seperator60}"
+      stage('Test App'){
+        sh "./calculator/gradlew test ./calculator" 
+      }
+      
+      echo "${seperator60}\n${seperator20} Build And Code Coverage \n${seperator60}"
+      stage('Code Coverage App'){
+        sh "./calculator/gradlew jacocoTestReport ./calculator" 
+        sh "./calculator/gradlew jacocoTestCoverageVerification ./calculator" 
       }
 }
