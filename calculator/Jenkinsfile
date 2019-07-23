@@ -47,4 +47,8 @@ node('builder-lab'){
             }
       }
 
+      stage("Docker push") {
+            sh "docker push phelun/calc_cicd:2.0" 
+      }
+
 }
