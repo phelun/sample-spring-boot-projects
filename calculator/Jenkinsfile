@@ -5,7 +5,7 @@ def seperator60 = '\u2739' * 60
 def seperator20 = '\u2739' * 20
 
 
-node(){
+node('any'){
       echo "${seperator60}\n${seperator20} Clone repo to workspace \n${seperator60}"
       ansiColor('xterm') {
           checkout scm 
