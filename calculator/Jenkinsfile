@@ -37,7 +37,7 @@ node('misc'){
       echo "${seperator60}\n${seperator20} Docker in docker build \n${seperator60}"
       stage('Building Docker'){
         dir('calculator'){
-            sh 'docker build -t phelun/calc_cicd:2.0 Dockerfile .'
+            sh 'docker build -t phelun/calc_cicd:2.0 -f Dockerfile .'
         }
       }
 }
