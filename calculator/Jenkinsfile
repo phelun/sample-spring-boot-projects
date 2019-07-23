@@ -11,27 +11,27 @@ node('misc'){
           checkout scm 
       }
    
-      #echo "${seperator60}\n${seperator20} Build And Integrate \n${seperator60}"
-      #stage('Build App'){
-      #    dir('calculator'){
-      #      sh './gradlew build'
-      #    }  
-      #}
+      //#echo "${seperator60}\n${seperator20} Build And Integrate \n${seperator60}"
+      //#stage('Build App'){
+      //#    dir('calculator'){
+      //#      sh './gradlew build'
+      //#    }  
+      //#}
       
-      #echo "${seperator60}\n${seperator20} Build And Unit Test \n${seperator60}"
-      #stage('Test App'){
-      #  dir('calculator'){
-      #      sh './gradlew test' 
-      #  }
-      #}
+      //#echo "${seperator60}\n${seperator20} Build And Unit Test \n${seperator60}"
+      //#stage('Test App'){
+      //#  dir('calculator'){
+      //#      sh './gradlew test' 
+      //#  }
+      //#}
       
-      #echo "${seperator60}\n${seperator20} Build And Code Coverage \n${seperator60}"
-      #stage('Code Coverage App'){
-      #  dir('calculator'){
-      #      sh './gradlew jacocoTestReport' 
-      #      sh './gradlew jacocoTestCoverageVerification' 
-      #  } 
-      #}
+      //#echo "${seperator60}\n${seperator20} Build And Code Coverage \n${seperator60}"
+      //#stage('Code Coverage App'){
+      //#  dir('calculator'){
+      //#      sh './gradlew jacocoTestReport' 
+      //#      sh './gradlew jacocoTestCoverageVerification' 
+      //#  } 
+      //#}
 
       
       echo "${seperator60}\n${seperator20} Docker in docker build \n${seperator60}"
