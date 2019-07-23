@@ -1,7 +1,7 @@
 FROM ubuntu:trusty
 MAINTAINER FMBAH
 
-
+# Setup container
 RUN locale-gen en_US.UTF-8 \
     && apt-get -q update \
     && apt-get install python git jwhois unzip wget curl ansible python3-pip -y \
@@ -12,6 +12,7 @@ RUN locale-gen en_US.UTF-8 \
     && sed -i 's|session    required     pam_loginuid.so|session    optional     pam_loginuid.so|g' /etc/pam.d/sshd \
     && mkdir -p /var/run/sshd
 
+# Install random tools including k8s toolbox
 RUN apt-get -q update \
     && wget https://releases.hashicorp.com/terraform/0.12.4/terraform_0.12.4_linux_amd64.zip -P /tmp/ \
     && wget https://releases.hashicorp.com/packer/1.4.2/packer_1.4.2_linux_amd64.zip -P /tmp/ \
