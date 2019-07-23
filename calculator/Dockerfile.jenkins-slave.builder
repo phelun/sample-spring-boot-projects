@@ -38,8 +38,21 @@ RUN apt-get -q update \
     && apt-get -q clean -y && rm -rf /var/lib/apt/lists/* && rm -f /var/cache/apt/*.bin
 
 
+RUN apt-get update -qq \
+    && apt-get -y install apt-transport-https ca-certificates curl gnupg2 software-properties-common 
+
+RUN curl -fsSL https://download.docker.com/linux/$(. /etc/os-release; echo "$ID")/gpg > /tmp/dkey; apt-key add /tmp/dkey 
+RUN add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/$(. /etc/os-release; echo "$ID") $(lsb_release -cs) stable"
+
+RUN apt-get update -q \
+    && apt-get install docker-ce -y
+
 RUN useradd -m -d /home/jenkins -s /bin/sh jenkins && echo "jenkins:jenkins" | chpasswd
+RUN usermod -aG docker jenkins
 EXPOSE 22
 
+RUN chmod 0777 /var/run/docker.sock
+RUN /var/run/docker.sock /var/run/docker.docker.sock
+ 
 # Default command
 CMD ["/usr/sbin/sshd", "-D"]
